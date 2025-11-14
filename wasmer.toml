@@ -1,0 +1,28 @@
+[package]
+name = "pakoralove"
+version = "1.0.0"
+description = "PakoraLove - Crispy, Spicy, Love in Every Bite"
+
+[dependencies]
+"wasmer/static-web-server" = "^1"
+
+[[module]]
+name = "pakoralove"
+source = "."
+abi = "none"
+
+[fs]
+"/public" = "."
+
+[[command]]
+name = "start"
+module = "wasmer/static-web-server:webserver"
+runner = "wasi"
+
+[command.annotations.wasi]
+main-args = [
+  "--port=8080",
+  "--root=/public",
+  "--log-level=info",
+  "--page404=/index.html"
+]

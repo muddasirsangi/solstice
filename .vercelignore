@@ -1,0 +1,10 @@
+node_modules
+.expo
+.vscode
+src
+App.js
+app.json
+babel.config.js
+package.json
+package-lock.json
+*.md
